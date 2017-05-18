@@ -1,0 +1,12 @@
+.delete-to-cart, .like {
+background: #e2401f;
+padding: 1.2em 1.5em;
+border: none;
+text-transform: UPPERCASE;
+font-weight: bold;
+color: white;
+-webkit-transition: background .3s ease;
+        transition: background .3s ease; }
+.delete-to-cart:hover, .like:hover {
+  background: #ed6144;
+  color: #fff; }

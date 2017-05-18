@@ -1,0 +1,12 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="../../assets/bag.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+        <form class="form-signin" [formGroup]="login_form" (ngSubmit)="create_token()">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="email" id="inputEmail" formControlName="email" class="form-control" placeholder="Email" required autofocus>
+            <input type="password" id="inputPassword" formControlName="password" class="form-control" placeholder="Contrasena" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Inicia Sesion</button>
+        </form><!-- /form -->           
+    </div>
+</div>

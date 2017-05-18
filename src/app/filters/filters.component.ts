@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filters',
@@ -7,9 +7,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  	@Output() eventRefresh = new EventEmitter<any>();
 
-  ngOnInit() {
-  }
+  	constructor() { }
+
+
+
+	refresh(){
+	    alert("calling playTrack from child 2:");  
+	    this.eventRefresh.next();
+	}
+
+  	ngOnInit() {
+  	
+  	}
 
 }

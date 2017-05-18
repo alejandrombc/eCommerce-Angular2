@@ -1,0 +1,102 @@
+<div class="container" style="background-color: white;">
+    <div class="row">
+        <div class="col-md-12">
+        	<div class="invoice-title">
+    			<h2>¡Compra realizada!</h2>
+    		<hr>	
+    		</div>    		
+    	</div>
+    </div>
+    
+    <div class="row">
+    	<div class="col-md-12">
+    		<div class="panel panel-default">
+    			<div class="panel-heading">
+    				<h3 class="panel-title"><strong>Tú pedido</strong></h3>
+    			</div>
+    			<div class="panel-body">
+    				<div class="table-responsive">
+    					<table class="table table-condensed">
+    						<thead>
+                                <tr>
+        							<td><strong>Producto</strong></td>
+        							<td class="text-center"><strong>Precio</strong></td>
+        							<td class="text-center"><strong>Cantidad</strong></td>
+        							<td class="text-center"><strong>Categoría</strong></td>
+                                </tr>
+    						</thead>
+    						<tbody>
+								<!-- FOR DE PRODUCTOS -->
+                                    <tr>
+        								<td class="col-md-3">
+        								    <div class="media">
+                                                <a class="pull-left" href="">
+                                                    <div style="width: 72px; height: 72px;">
+        								                <img class="img-rounded media-object" src="http://placehold.it/320x150" style='width: 100%; height: 100%;'>
+                                                    </div>
+                                                </a>
+        								         <div class="media-body">
+        								             <h4 class="media-heading">NOMBRE PRO</h4>
+        								         </div>
+        								    </div>
+        								</td>
+        								<td class="text-center">$ PRECIO</td>
+        								<td class="text-center">1</td>
+										<!-- CHEQUEAR CATEGORIA -->
+                                        <td class="text-center">Celulares</td>
+        							</tr> 
+    						</tbody>
+    					</table>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+    
+    <div class="row">
+         <div class="col-md-12">
+            <div class="col-md-4">
+            	<h3 class="text-center">Resumen de compra</h3><hr>
+            	<div class="pull-left"><h4>Subtotal</h4> </div>
+            	<div class="pull-right"><h4 class="text-right">$ SUB TOTAL</h4></div>
+            	<div class="clearfix"></div>
+            	<div class="pull-left"><h4>IVA</h4> </div>
+            	<div class="pull-right"><h4 class="text-right">$ IVA</h4></div>
+            	<div class="clearfix"></div>
+            	<div class="pull-left"><h4>Total</h4> </div>
+            	<div class="pull-right"><h4 class="text-right">$ TOTAL</h4></div>
+            	<div class="clearfix"></div>
+        	</div>
+        	<div class="col-md-4 offset-md-1">
+            	<h3 class="text-center">Método de pago</h3><hr>
+            	<div class="text-center">
+                    <div class="pull-left"><h5>Nombre</h5> </div>
+                    <div class="pull-right"><h6 class="text-right">NOMBRE EN LA TARJETA</h6></div>
+                    <div class="clearfix"></div>
+                    <div class="pull-left"><h5>Tarjeta</h5> </div>
+                    <div class="pull-right"><h6 class="text-right">TARJETA PERSONA</h6></div>
+                    <div class="clearfix"></div>
+            	 </div>
+        	</div>
+        	<div class="col-md-4 offset-md-2">
+            	<h3 class="text-center">Información de facturación</h3><hr>
+                    <address>
+                        <strong>A nombre de:</strong><br>
+                            NOMBRE APELLIDO<br>
+                            DIRECCION <br>
+                            APARTAMENTO<br>
+                            CIUDAD, ESTADO, CODIGO POSTAL
+                    </address>
+        	</div>
+    	</div>
+    	<div class="row row-centered">
+    		<div class="col col-centered">
+        		<button [routerLink]="['']" class="btn btn-info btn-lg" style="margin-top: 5%;">SEGUIR COMPRANDO</button>
+        	</div>
+        </div>
+        <br>
+        <br>
+    </div>
+</div>
+<br>
+<br>

@@ -7,9 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FeedProdComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
-  }
+ 	refreshProd(){
+    	alert("YES!!");
+	}
+	
+	constructor() { }
+
+	ngOnInit() {
+	
+	}
 
 }

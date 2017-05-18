@@ -1,0 +1,14 @@
+<div class="container">
+    <div class="card card-container">
+        <img id="profile-img" class="profile-img-card" src="../../assets/bag.png" />
+        <p id="profile-name" class="profile-name-card"></p>
+         <form class="form-signin" [formGroup]="registro_form" (ngSubmit)="create_user()">
+            <span id="reauth-email" class="reauth-email"></span>
+            <input type="text" id="inputPassword" formControlName="nombre" class="form-control" placeholder="Nombre y Apellido" required autofocus>
+            <input type="text" id="inputPassword" formControlName="username" class="form-control" placeholder="Apodo" required>
+            <input type="email" id="inputEmail" formControlName="email" class="form-control" placeholder="Correo" required>
+            <input type="password" id="inputPassword" class="form-control" placeholder="Contraseña" formControlName="password" required>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit">Registrar</button>
+        </form>           
+    </div>
+</div>
