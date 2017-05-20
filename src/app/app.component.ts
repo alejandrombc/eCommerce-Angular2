@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { GlobalService } from './globals.component';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app works!';
 
-  //AQUI PONER EL LOCALSTORAGE DEL GET PARA CHEQUEAR EL USER
+  constructor(private servicio: GlobalService){
+  	servicio.check_token();
+  }
+  
 }

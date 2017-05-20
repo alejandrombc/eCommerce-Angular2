@@ -18,6 +18,7 @@ import { ProductComponent } from './product/product.component';
 import { PrepurcharseComponent } from './prepurcharse/prepurcharse.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BillComponent } from './bill/bill.component';
+import { GlobalService } from './globals.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,7 @@ import { BillComponent } from './bill/bill.component';
     HttpModule,
     app_routing
   ],
-  providers: [],
+  providers: [GlobalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

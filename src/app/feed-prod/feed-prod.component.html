@@ -1,46 +1,28 @@
 <div class="row">
-        <a href="#">
-	        <div class="col-xs-12 col-sm-6 col-lg-4 col-md-6">
+        <a *ngFor="let p of products" href="#">
+	        <div  class="col-xs-12 col-sm-6 col-lg-4 col-md-6">
 	            <div class="thumbnail product">
 	            	<div style='height:200px'>
-		                <img src="http://placehold.it/320x150" style='height:100%; width:100%;' alt="">
+		                <img src={{p.foto}} style='height:100%; width:100%;' alt="">
 	                </div>
 	                <div class="caption">
-	                    <h4>0.0 $</h4>
-	                    <h4>Nombre Producto</h4>
-	                   	<p>Descripcion Producto</p>
-	                </div>
-	            </div>
-	        </div>
-    	</a>
+	                    <h4>$ {{ p.precio }}</h4>
+	                    <h4>{{ p.nombre }}</h4>
 
-    	 <a href="#">
-	        <div class="col-xs-12 col-sm-6 col-lg-4 col-md-6 col-centered">
-	            <div class="thumbnail product">
-	            	<div style='height:200px'>
-		                <img src="http://placehold.it/320x150" style='height:100%; width:100%;' alt="">
-	                </div>
-	                <div class="caption">
-	                    <h4>0.0 $</h4>
-	                    <h4>Nombre Producto</h4>
-	                   	<p>Descripcion Producto</p>
-	                </div>
-	            </div>
-	        </div>
-    	</a>
+	                   	<p *ngIf="p.descripcion.length <= 36; else long_descr">{{ p.descripcion }}</p>
 
-    	<a href="#">
-	        <div class="col-xs-12 col-sm-6 col-lg-4 col-md-6">
-	            <div class="thumbnail product">
-	            	<div style='height:200px'>
-		                <img src="http://placehold.it/320x150" style='height:100%; width:100%;' alt="">
-	                </div>
-	                <div class="caption">
-	                    <h4>0.0 $</h4>
-	                    <h4>Nombre Producto</h4>
-	                   	<p>Descripcion Producto</p>
+	                   	<ng-template #long_descr>
+	                   		<p>...</p>
+	                   	</ng-template>
 	                </div>
 	            </div>
 	        </div>
     	</a>
 </div>
+<br>
+<div *ngIf="more_products;" class="row row-centered">
+	<div class="col-sm-12 col-centered">
+		<button (click)="refreshProd()" style="cursor: pointer;" type="button" class="btn btn-default btn-block"><i class="glyphicon glyphicon-plus"></i></button>
+	</div>
+</div>
+<br>

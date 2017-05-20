@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Http, Headers} from '@angular/http';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { GlobalService } from '../globals.component';
 
 @Component({
   selector: 'app-login',
@@ -15,11 +16,12 @@ export class LoginComponent implements OnInit {
     	  password: [""],
 	  });
 
-  	constructor(public fb: FormBuilder, public http: Http, private router:Router) { }
+
+  	constructor(public fb: FormBuilder, public http: Http, private router:Router, private servicio: GlobalService) { }
 
 
-  	create_token(){
-  		
+  	login(){
+      this.servicio.create_token(this.login_form);
   	}
 
   	ngOnInit() {

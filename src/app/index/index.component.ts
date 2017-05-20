@@ -8,7 +8,7 @@ import { Http, Headers} from '@angular/http';
 })
 export class IndexComponent implements OnInit {
 
-  constructor(public http: Http) { }
+  constructor(public http: Http) {}
 
   ngOnInit() {
   }
