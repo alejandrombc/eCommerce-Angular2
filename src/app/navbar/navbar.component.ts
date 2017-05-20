@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../globals.component';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-navbar',
@@ -8,10 +9,16 @@ import { GlobalService } from '../globals.component';
 })
 export class NavbarComponent implements OnInit {
 
-  	constructor(private servicio: GlobalService) {
-  	}
+  	constructor(private servicio: GlobalService, private router:Router) {}
 
-  	ngOnInit() {
-  	}
+  	cerrar_sesion () {
+		this.servicio.tokenize.is_valid = false;
+		this.servicio.tokenize.token = null;
+		localStorage.removeItem("access_token");
+		this.router.navigate(['']);
+		alert("Hasta Luego!");
+	}
+
+  	ngOnInit() {}
 
 }

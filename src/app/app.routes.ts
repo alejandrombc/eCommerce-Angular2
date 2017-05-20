@@ -6,6 +6,7 @@ import { PerfilComponent } from './perfil/perfil.component';
 import { ProductComponent } from './product/product.component';
 import { PrepurcharseComponent } from './prepurcharse/prepurcharse.component';
 import { CheckoutComponent } from './checkout/checkout.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 import { BillComponent } from './bill/bill.component';
 
 const app_routes: Routes = [
@@ -14,6 +15,7 @@ const app_routes: Routes = [
 	{ path : 'login', component: LoginComponent },
 	{ path : 'perfil', component: PerfilComponent },
 	{ path : 'product/:id', component: ProductComponent },
+	{ path : 'update_product/:id', component: UpdateProductComponent },
 	{ path : 'pre_purchase', component: PrepurcharseComponent },
 	{ path : 'checkout', component: CheckoutComponent },
 	{ path : 'bill', component: BillComponent },

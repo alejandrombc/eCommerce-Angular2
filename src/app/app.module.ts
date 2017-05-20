@@ -19,6 +19,7 @@ import { PrepurcharseComponent } from './prepurcharse/prepurcharse.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { BillComponent } from './bill/bill.component';
 import { GlobalService } from './globals.component';
+import { UpdateProductComponent } from './update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { GlobalService } from './globals.component';
     ProductComponent,
     PrepurcharseComponent,
     CheckoutComponent,
-    BillComponent
+    BillComponent,
+    UpdateProductComponent
   ],
   imports: [
     BrowserModule,

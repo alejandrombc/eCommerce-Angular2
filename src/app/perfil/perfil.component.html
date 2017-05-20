@@ -4,10 +4,9 @@
     $(document).ready(function() {
       $(".btn-pref .btn").click(function () {
           $(".btn-pref .btn").removeClass("btn-primary").addClass("btn-default");
-          // $(".tab").addClass("active"); // instead of this do the below 
           $(this).removeClass("btn-default").addClass("btn-primary");   
       });
-      });
+    });
 </script>
 
 <!-- FIN DEL CAMBIO DE "SECCION" -->
@@ -41,15 +40,13 @@
             <div class="row row-centered">
               <div class="col-md-6">
                 <h5><strong>Nombre:</strong></h5>
-                <h5><strong>Apellido:</strong></h5>
                 <h5><strong>Apodo:</strong></h5>
                 <h5><strong>Email:</strong></h5>
               </div>
               <div class="col-md-6">
-                <h5>Alejandro</h5>
-                <h5>Barone</h5>
-                <h5>Apodo</h5>
-                <h5>Correo</h5>
+                <h5>{{user.nombre}}</h5>
+                <h5>{{user.username}}</h5>
+                <h5>{{user.email}}</h5>
               </div>
             </div>
             
@@ -57,22 +54,22 @@
           <div class="tab-pane fade in" id="tab2">
           <h3><strong>Datos del producto a agregar:</strong></h3>
           <br>
-            <form action="/addProducto" id="form_id" method="POST">
+            <form id="form_id" [formGroup]="product_form" (ngSubmit)="new_product()" ngNativeValidate>
             <div class="row row-centered">
                 <div class="col-md-12">
-                  <input type="text" class="form-control" name="nombre" minlenght="1" maxlenght="25" placeholder="Nombre del producto" required>
+                  <input type="text" class="form-control" formControlName="nombre" minlenght="1" maxlenght="25" placeholder="Nombre del producto" required>
                   <br>
-                  <input type="number" class="form-control" name="precio" placeholder="Precio del producto" required>
+                  <input type="number" class="form-control" formControlName="precio" placeholder="Precio del producto" required>
                   <br>
-                  <input type="url" class="form-control" name="foto" placeholder="Link a la imagen del producto" required>
+                  <input type="url" class="form-control" formControlName="foto" placeholder="Link a la imagen del producto" required>
                   <br>
-                  <select name="idCategoria" class="form-control">
-                    <option value="1">Celulares</option>
+                  <select formControlName="idCategoria" class="form-control" required> 
+                    <option value="1" selected>Celulares</option>
                     <option value="2">Videojuegos</option>
                     <option value="3">Deportes</option>
                   </select>
                   <br>
-                  <textarea style="resize: vertical;" maxlenght="200" name="descripcion" class="form-control" form="form_id" placeholder="Descripcion del producto" required></textarea>
+                  <textarea style="resize: vertical;" maxlenght="200" formControlName="descripcion" class="form-control" form="form_id" placeholder="Descripcion del producto" required></textarea>
                   <br>
                   <input type="submit" class="btn btn-success btn-lg" value="Crear">
                 </div>
@@ -80,11 +77,18 @@
             </form>
           </div>
           <div class="tab-pane fade in" id="tab3">
-              <h5>Actualmente no tienes ninguna entrada en tu diario, ¡empieza a crear una!</h5>
+              <h5 *ngIf="coments.length < 1; else coments_val" >Actualmente no tienes ninguna entrada en tu diario, ¡empieza a crear una!</h5>
+              <ng-template #coments_val>
+                <div *ngFor="let c of coments">
+                  <h5>Creado por <strong>{{ user.username }}</strong>:</h5>
+                  <textarea style="resize: none;" maxlenght="200" name="descripcion" class="form-control"readonly >{{ c.cuerpo }}</textarea>
+                  <br>
+                </div>
+              </ng-template>
             <br>
             <h3><strong>Agregar nueva entrada</strong></h3>
-            <form>
-               <textarea style="resize: vertical;" maxlenght="200" name="cuerpo" class="form-control" form="form_comment" placeholder="Cuerpo del nuevo comentario" required></textarea>
+            <form [formGroup]="comment_form" (ngSubmit)="new_comment()" ngNativeValidate>
+               <textarea style="resize: vertical;" maxlenght="200" formControlName="cuerpo" class="form-control" form="form_comment" placeholder="Cuerpo del nuevo comentario" required></textarea>
                <br>
                <input type="submit" class="btn btn-success" value="Agregar">
             </form>

@@ -42,7 +42,7 @@ export class GlobalService {
 	              this.tokenize.token = salida['access_token'];
 	              localStorage.setItem("access_token", this.tokenize.token);
 	              this.router.navigate(['']);
-	              alert("Bienvenido de vuelta!");
+	              alert("Bienvenido!");
 	            }else{
 	              alert("Usuario o peticion invalida");
 	            }

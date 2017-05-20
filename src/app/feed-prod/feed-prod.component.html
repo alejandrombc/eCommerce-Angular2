@@ -1,5 +1,5 @@
 <div class="row">
-        <a *ngFor="let p of products" href="#">
+        <a *ngFor="let p of products" [routerLink]="['product', p.id]">
 	        <div  class="col-xs-12 col-sm-6 col-lg-4 col-md-6">
 	            <div class="thumbnail product">
 	            	<div style='height:200px'>

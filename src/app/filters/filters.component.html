@@ -1,13 +1,13 @@
 <br>
 <p>Categorías:</p>
 <div class="list-group">
-    <a href="#" (click)="refresh()" class="list-group-item">Celulares</a>
-    <a href="#" (click)="refresh()" class="list-group-item">Videojuegos</a>
-    <a href="#" (click)="refresh()" class="list-group-item">Deportes</a>
+    <a (click)="refresh_categoria_celular()" class="list-group-item">Celulares</a>
+    <a (click)="refresh_categoria_juego()" class="list-group-item">Videojuegos</a>
+    <a (click)="refresh_categoria_deportes()" class="list-group-item">Deportes</a>
 </div>
 
 <p>Ordena:</p>
 <div class="list-group">
-	<a href="#" (click)="refresh()" class="list-group-item">Alfabeticamente</a>
-   	<a href="#" (click)="refresh()" class="list-group-item">Precio</a>
+	<a (click)="refresh_alfabeticamente()" class="list-group-item">Alfabeticamente</a>
+   	<a (click)="refresh_precio()" class="list-group-item">Precio</a>
 </div>

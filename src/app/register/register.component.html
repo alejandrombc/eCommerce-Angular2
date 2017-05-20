@@ -2,7 +2,7 @@
     <div class="card card-container">
         <img id="profile-img" class="profile-img-card" src="../../assets/bag.png" />
         <p id="profile-name" class="profile-name-card"></p>
-         <form class="form-signin" [formGroup]="registro_form" (ngSubmit)="create_user()">
+         <form class="form-signin" [formGroup]="registro_form" (ngSubmit)="create_user()" ngNativeValidate>
             <span id="reauth-email" class="reauth-email"></span>
             <input type="text" id="inputPassword" formControlName="nombre" class="form-control" placeholder="Nombre y Apellido" required autofocus>
             <input type="text" id="inputPassword" formControlName="username" class="form-control" placeholder="Apodo" required>

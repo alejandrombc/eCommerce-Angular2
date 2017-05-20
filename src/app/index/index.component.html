@@ -31,10 +31,21 @@
 		</div>
 		<br>
 		<div style="background-color: white; border-radius: 5px;" class="col-md-3">	
-			<app-filters (eventRefresh)="callBack.refreshProd($event)"></app-filters>
+			<app-filters 
+			(eventCategoriaCelular)="callBack.refreshProdCatCelular($event)" 
+			(eventCategoriaJuegos)="callBack.refreshProdCatJuego($event)" 
+			(eventCategoriaDeporte)="callBack.refreshProdCatDeporte($event)" 
+			(eventAlfabetico)="callBack.refreshProdAlf($event)" 
+			(eventPrecio)="callBack.refreshProdPre($event)"></app-filters>
 		</div>
 		<div class="col-md-9">
-			<app-feed-prod #callBack></app-feed-prod>
+			<app-feed-prod #callBack>
+				<div class="row row-centered">
+      				<div class="col-sm-6 col-centered">
+       					<img id="loader_index" src="http://eheio.ma/images/eheio/load.gif">
+      				</div>
+    			</div>
+			</app-feed-prod>
 		</div>
 	</div>
 </div>

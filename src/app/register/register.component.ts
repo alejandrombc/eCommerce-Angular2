@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { Http, Headers} from '@angular/http';
-import {Router} from "@angular/router";
+import { Router } from "@angular/router";
+import { GlobalService } from '../globals.component';
 
 
 @Component({
@@ -19,12 +20,32 @@ export class RegisterComponent implements OnInit {
 	    password: [""]
 	});
 	
-	constructor(public fb: FormBuilder, public http: Http, private router:Router) {
+	constructor(public fb: FormBuilder, public http: Http, private router:Router, private servicio: GlobalService) {
 	}
 
 
 	create_user(){
-		alert("sirve");
+		let formData = this.registro_form.value;
+	    var headers = new Headers();
+	    headers.append('Content-Type', 'application/json');
+	    let salida; 
+
+	    this.http.post('http://localhost:5000/register', JSON.stringify(formData),{ headers: headers })      
+	    .subscribe(res => {
+	            salida = res.json();
+	            if(!salida['register_value']){
+					alert("Registro o peticion invalida");
+	            }else{
+	            	this.servicio.create_token(this.registro_form);
+	            	this.router.navigate(['']);
+	            	alert("Usuario registrado con exito!");
+
+	            }
+
+
+	      }, error => {
+	          console.log(error.json());
+	      });
 	}
 
 	ngOnInit() {

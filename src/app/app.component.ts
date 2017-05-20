@@ -6,8 +6,8 @@ import { GlobalService } from './globals.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
+
 export class AppComponent {
-  title = 'app works!';
 
   constructor(private servicio: GlobalService){
   	servicio.check_token();
