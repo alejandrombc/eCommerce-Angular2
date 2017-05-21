@@ -1,13 +1,14 @@
 <br>
 <p>Categorías:</p>
 <div class="list-group">
-    <a (click)="refresh_categoria_celular()" class="list-group-item">Celulares</a>
-    <a (click)="refresh_categoria_juego()" class="list-group-item">Videojuegos</a>
-    <a (click)="refresh_categoria_deportes()" class="list-group-item">Deportes</a>
+    <a (click)="refresh_categoria_celular('celular')" class="{{getActive('celular')}} list-group-item">Celulares</a>
+    <a (click)="refresh_categoria_juego('juego')" class="{{getActive('juego')}} list-group-item">Videojuegos</a>
+    <a (click)="refresh_categoria_deportes('deporte')" class="{{getActive('deporte')}} list-group-item">Deportes</a>
 </div>
 
 <p>Ordena:</p>
 <div class="list-group">
-	<a (click)="refresh_alfabeticamente()" class="list-group-item">Alfabeticamente</a>
-   	<a (click)="refresh_precio()" class="list-group-item">Precio</a>
+	<a (click)="refresh_alfabeticamente('alfa')" class="{{getActive('alfa')}} list-group-item">Alfabeticamente</a>
+   	<a (click)="refresh_precio('precio')" class="{{getActive('precio')}} list-group-item">Precio</a>
 </div>
+<br>

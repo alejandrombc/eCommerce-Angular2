@@ -23,6 +23,7 @@ export class PerfilComponent implements OnInit {
 		  descripcion: [""]
 	});
 
+	public activo;
 
 	public comment_form = this.fb.group({
 		  user_id: [""],
@@ -49,6 +50,19 @@ export class PerfilComponent implements OnInit {
 		}else{
 			this.router.navigate(['']);
 		}
+	}
+
+	getActive(choice: string) : string{
+       if(this.activo == choice)
+            return "active";
+       else
+            return "not";
+
+   }
+
+    //Llama a una funcion del componente feed
+	new_active(choice: string){
+       this.activo = choice;
 	}
 
 	new_product(){

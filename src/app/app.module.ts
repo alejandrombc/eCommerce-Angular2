@@ -20,6 +20,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
 import { BillComponent } from './bill/bill.component';
 import { GlobalService } from './globals.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { UpdateProductComponent } from './update-product/update-product.componen
     PrepurcharseComponent,
     CheckoutComponent,
     BillComponent,
-    UpdateProductComponent
+    UpdateProductComponent,
+    BusquedaComponent
   ],
   imports: [
     BrowserModule,

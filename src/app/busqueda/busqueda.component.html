@@ -1,12 +1,9 @@
 <div class="container">
 	<div class="row row-centered">
-		
-		
-		<div *ngIf="products != null else noProducts">	
-			<h2 style="color: white;">PRODUCTOS EN EL CARRO DE: <strong>{{user.username}}</strong></h2>
+		<div *ngIf="servicio.search.length > 0; else noProducts">	
 			<br>
 			<br>
- 			<a *ngFor="let p of products"  >
+ 			<a *ngFor="let p of servicio.search"  >
 		        <div class="col-xs-8 col-sm-6 col-lg-4 col-md-6">
 		        	<div class="thumbnail product" >
 
@@ -17,22 +14,14 @@
 		                    <h4 class="pull-right">$ {{p.precio}}</h4>
 		                    <h4 class="text-left">{{p.nombre}}</h4>
 							<p class="text-left">{{p.descripcion}}</p>
-		                    <button class="delete-to-cart btn btn-default btn-sm" (click)="delete_from_cart(p.id)"> Eliminar <span class="glyphicon glyphicon-shopping-cart"></span></button>
+		              
 		                </div>
 		            </div>
 		        </div>
 		    </a>
-		    <div class="col-sm-12 col-lg-12 col-md-12" style="margin-top:5%;">
-		    	<h3 style="color:white;">SUBTOTAL A PAGAR: <strong>$ {{subtotal}}</strong></h3>
-		    	<br>
-		    	<button class="btn btn-success btn-lg" [routerLink]="['/checkout']">CONFIRMAR COMPRA</button>
-		    	<br>
-		    	<br>
-		    </div>
  		</div>
-
  		<ng-template #noProducts>
-			<h2 style="color:white;">No posees productos en el carrito actualmente</h2>
+			<h2 style="color:white;">No hay productos que coincidan con esa busqueda</h2>
 			<img style="height: 20%; width: 20%;" src="../../assets/question.png" alt="">
 		</ng-template>
 	

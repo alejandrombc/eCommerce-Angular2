@@ -90,7 +90,7 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = ''
+app.config['MYSQL_DATABASE_PASSWORD'] = '1234'
 # app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'jgastore'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -161,7 +161,7 @@ class Login(Resource):
 			#Obtengo la fecha y hora actual
 			ahora = time.time()
 			#Sumo 30 minutos a la fecha actual
-			mas_30_min = 30*60
+			mas_30_min = 300*60
 			hoy_mas_30_minutos = ahora + mas_30_min
 
 
@@ -434,6 +434,24 @@ class Comentarios(Resource):
 
 		return success['ComentarioAgregado'], 200
 
+class ProductoBusqueda(Resource):
+	def post(self):
+		productos = request.get_json()
+		if(productos['cuerpo'] != None):
+			con = mysql.connect()
+			cursor = con.cursor()
+
+			cursor.execute("SELECT * FROM producto WHERE " +
+				"nombre LIKE '%"+productos['cuerpo']+"%' OR descripcion LIKE '%"+productos['cuerpo']+"%'" )
+
+			
+			data = cursor.fetchall()
+			return ([dict(id=producto[0], nombre=producto[1], descripcion=producto[2], foto=producto[3], precio=producto[4], cantVendida=producto[5], idCategoria=producto[6]) for producto in data])
+
+		else:
+			return []
+
+
 
 api.add_resource(Register, '/register')
 api.add_resource(Login, '/login')
@@ -445,6 +463,7 @@ api.add_resource(ActualizarVenta, '/nueva_compra')
 api.add_resource(InfoUser, '/usuario')
 api.add_resource(Comentarios, '/comentarios')
 api.add_resource(MultipleProducts, '/searchproduct')
+api.add_resource(ProductoBusqueda, '/producto_buscar')
 
 
 if __name__ == '__main__':

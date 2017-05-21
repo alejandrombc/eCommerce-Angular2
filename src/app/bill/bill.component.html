@@ -64,10 +64,10 @@
             	<div class="pull-right"><h4 class="text-right">$ {{subtotal}}</h4></div>
             	<div class="clearfix"></div>
             	<div class="pull-left"><h4>IVA</h4> </div>
-            	<div class="pull-right"><h4 class="text-right">$ {{subtotal * 0.12 | currency:'USD':true:'1.2-2'}}</h4></div>
+            	<div class="pull-right"><h4 class="text-right">{{subtotal * 0.12 | currency:'USD':true:'1.2-2'}}</h4></div>
             	<div class="clearfix"></div>
             	<div class="pull-left"><h4>Total</h4> </div>
-            	<div class="pull-right"><h4 class="text-right">$ {{subtotal * 1.12 | currency:'USD':true:'1.2-2'}}</h4></div>
+            	<div class="pull-right"><h4 class="text-right">{{subtotal * 1.12 | currency:'USD':true:'1.2-2'}}</h4></div>
             	<div class="clearfix"></div>
         	</div>
         	<div class="col-md-4 offset-md-1">

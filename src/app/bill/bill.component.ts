@@ -39,7 +39,8 @@ export class BillComponent implements OnInit {
 		      this.subtotal += this.products[i]['precio'];
 		    }  
 		    servicio.user_checkout['id_first_formControlName'] = '';
-        	localStorage.removeItem("carrito");    
+        	localStorage.removeItem("carrito");
+        	servicio.carrito_size = 0;    
 	  	}, error => {
 	      console.log(error.json());
 	  	});    

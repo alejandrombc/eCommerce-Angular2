@@ -8,6 +8,7 @@ import { PrepurcharseComponent } from './prepurcharse/prepurcharse.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 import { UpdateProductComponent } from './update-product/update-product.component';
 import { BillComponent } from './bill/bill.component';
+import { BusquedaComponent } from './busqueda/busqueda.component';
 
 const app_routes: Routes = [
 	{ path : '', component: IndexComponent },
@@ -18,6 +19,7 @@ const app_routes: Routes = [
 	{ path : 'update_product/:id', component: UpdateProductComponent },
 	{ path : 'pre_purchase', component: PrepurcharseComponent },
 	{ path : 'checkout', component: CheckoutComponent },
+	{ path : 'busqueda', component: BusquedaComponent },
 	{ path : 'bill', component: BillComponent },
 	{ path : '**', pathMatch: 'full', redirectTo: ''}
 ];
