@@ -27,23 +27,26 @@
     						</thead>
     						<tbody>
 								<!-- FOR DE PRODUCTOS -->
-                                    <tr>
+                                    <tr *ngFor="let p of products" >
         								<td class="col-md-3">
         								    <div class="media">
-                                                <a class="pull-left" href="">
+                                                <a class="pull-left" [routerLink]="['/product', p.id]">
                                                     <div style="width: 72px; height: 72px;">
-        								                <img class="img-rounded media-object" src="http://placehold.it/320x150" style='width: 100%; height: 100%;'>
+        								                <img class="img-rounded media-object" src="{{p.foto}}" style='width: 100%; height: 100%;'>
                                                     </div>
                                                 </a>
         								         <div class="media-body">
-        								             <h4 class="media-heading">NOMBRE PRO</h4>
+        								             <h4 class="media-heading">{{p.nombre}}</h4>
         								         </div>
         								    </div>
         								</td>
-        								<td class="text-center">$ PRECIO</td>
+        								<td class="text-center">$ {{p.precio}}</td>
         								<td class="text-center">1</td>
+
 										<!-- CHEQUEAR CATEGORIA -->
-                                        <td class="text-center">Celulares</td>
+                                        <td class="text-center" *ngIf="p.idCategoria == 1">Celulares</td>
+                                        <td class="text-center" *ngIf="p.idCategoria == 2">Videojuegos</td>
+                                        <td class="text-center" *ngIf="p.idCategoria == 3">Deporte</td>
         							</tr> 
     						</tbody>
     					</table>
@@ -58,23 +61,23 @@
             <div class="col-md-4">
             	<h3 class="text-center">Resumen de compra</h3><hr>
             	<div class="pull-left"><h4>Subtotal</h4> </div>
-            	<div class="pull-right"><h4 class="text-right">$ SUB TOTAL</h4></div>
+            	<div class="pull-right"><h4 class="text-right">$ {{subtotal}}</h4></div>
             	<div class="clearfix"></div>
             	<div class="pull-left"><h4>IVA</h4> </div>
-            	<div class="pull-right"><h4 class="text-right">$ IVA</h4></div>
+            	<div class="pull-right"><h4 class="text-right">$ {{subtotal * 0.12 | currency:'USD':true:'1.2-2'}}</h4></div>
             	<div class="clearfix"></div>
             	<div class="pull-left"><h4>Total</h4> </div>
-            	<div class="pull-right"><h4 class="text-right">$ TOTAL</h4></div>
+            	<div class="pull-right"><h4 class="text-right">$ {{subtotal * 1.12 | currency:'USD':true:'1.2-2'}}</h4></div>
             	<div class="clearfix"></div>
         	</div>
         	<div class="col-md-4 offset-md-1">
             	<h3 class="text-center">Método de pago</h3><hr>
             	<div class="text-center">
                     <div class="pull-left"><h5>Nombre</h5> </div>
-                    <div class="pull-right"><h6 class="text-right">NOMBRE EN LA TARJETA</h6></div>
+                    <div class="pull-right"><h6 class="text-right">{{servicio.user_checkout.name_on_card}}</h6></div>
                     <div class="clearfix"></div>
                     <div class="pull-left"><h5>Tarjeta</h5> </div>
-                    <div class="pull-right"><h6 class="text-right">TARJETA PERSONA</h6></div>
+                    <div class="pull-right"><h6 class="text-right">{{servicio.user_checkout.card_number}}</h6></div>
                     <div class="clearfix"></div>
             	 </div>
         	</div>
@@ -82,10 +85,10 @@
             	<h3 class="text-center">Información de facturación</h3><hr>
                     <address>
                         <strong>A nombre de:</strong><br>
-                            NOMBRE APELLIDO<br>
-                            DIRECCION <br>
-                            APARTAMENTO<br>
-                            CIUDAD, ESTADO, CODIGO POSTAL
+                            {{nombre}}<br>
+                            {{servicio.user_checkout.id_address_line_1}} <br>
+                            {{servicio.user_checkout.id_address_line_2}} <br>
+                            {{servicio.user_checkout.id_city}}, {{servicio.user_checkout.id_state}}, {{servicio.user_checkout.codigo_postal}}
                     </address>
         	</div>
     	</div>

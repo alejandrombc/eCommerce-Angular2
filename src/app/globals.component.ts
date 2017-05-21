@@ -8,6 +8,7 @@ export class GlobalService {
 	public tokenize = {"token": null, "is_valid": false};
 	
 	public carrito_size = 0;
+	public user_checkout = {'email': '', 'id_first_formControlName': '', 'id_address_line_1': '', 'id_address_line_2': '', 'id_city': '', 'id_state': '', 'codigo_postal': '', 'telefono': '', 'card_exp_month': '', 'card_exp_year': '', 'card_cvc': '', 'name_on_card': '', 'card_number': ''};
 
 	constructor(public http: Http, private router:Router) {
 		this.carrito_size = 0;

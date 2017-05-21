@@ -90,7 +90,7 @@ mysql = MySQL()
 mysql.init_app(app)
 
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = '1234'
+app.config['MYSQL_DATABASE_PASSWORD'] = ''
 # app.config['MYSQL_DATABASE_PASSWORD'] = ''
 app.config['MYSQL_DATABASE_DB'] = 'jgastore'
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
@@ -230,6 +230,25 @@ class Productos(Resource):
 		con.commit()
 		return success['ProductoEditado'], 200
 
+class ActualizarVenta(Resource):
+	def post(self):
+		productos = request.get_json()
+
+		if(productos['ids'] != None):
+			con = mysql.connect()
+			cursor = con.cursor()
+
+			sql='UPDATE producto SET cantVendida=cantVendida+1 WHERE idProducto IN (%s)' 
+			in_p=', '.join(list(map(lambda x: '%s', productos['ids'])))
+			sql = sql % in_p
+
+			cursor.execute(sql, productos['ids'])
+			
+			con.commit()
+			return success['ProductoEditado'], 200
+
+		else:
+			return errors['ProductoNotFound'], 404 #REVISAR
 
 class ProductosList(Resource):
 	def get(self):
@@ -309,6 +328,26 @@ class InfoUser(Resource):
 			data = cursor.fetchone()
 			return dict(email=data[0], nombre=data[1], username=data[3])
 		return errors['RecursoNoExistente'], 404
+
+class MultipleProducts(Resource):
+	def post(self):
+		productos = request.get_json()
+
+		print(productos['ids'])
+		if(productos['ids'] != None):
+			con = mysql.connect()
+			cursor = con.cursor()
+
+			sql='SELECT * FROM producto WHERE idProducto IN (%s)' 
+			in_p=', '.join(list(map(lambda x: '%s', productos['ids'])))
+			sql = sql % in_p
+
+			cursor.execute(sql, productos['ids'])
+			productos_general = cursor.fetchall()
+
+			return ([dict(id=producto[0], nombre=producto[1], descripcion=producto[2], foto=producto[3], precio=producto[4], cantVendida=producto[5], idCategoria=producto[6], product_value=True) for producto in productos_general])
+		else:
+			return errors['ProductoNotFound'], 404 #REVISAR
 
 class Token(Resource):
 	def post(self):
@@ -402,8 +441,10 @@ api.add_resource(Token, '/check_token')
 api.add_resource(Productos, '/productos/<string:idP>', endpoint='prod_ep')
 api.add_resource(ProductosList, '/productos')
 api.add_resource(ProdList, '/products')
+api.add_resource(ActualizarVenta, '/nueva_compra')
 api.add_resource(InfoUser, '/usuario')
 api.add_resource(Comentarios, '/comentarios')
+api.add_resource(MultipleProducts, '/searchproduct')
 
 
 if __name__ == '__main__':
