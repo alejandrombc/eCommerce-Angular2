@@ -68,10 +68,10 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 DELETE FROM `comentarios`;
 /*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
 INSERT INTO `comentarios` (`id`, `cuerpo`, `user_id`) VALUES
-	(2, 'MAMALO', 'alejandrombc@gmail.com'),
-	(7, 'JESUS CONO ', 'alejandrombc@gmail.com'),
-	(8, 'JAJAJA', 'alejandrombc@gmail.com'),
-	(9, 'MAMALO JESUS', 'gregcastro@gmail.com');
+	(2, 'Quiero mi iphone', 'alejandrombc@gmail.com'),
+	(7, 'La proxima semana lo compro', 'alejandrombc@gmail.com'),
+	(8, 'Me gusta este diario!', 'alejandrombc@gmail.com'),
+	(9, 'Necesito el PS4!', 'gregcastro@gmail.com');
 /*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
 
 -- Volcando estructura para tabla jgastore.envio
@@ -192,10 +192,10 @@ DELETE FROM `producto`;
 INSERT INTO `producto` (`idProducto`, `nombre`, `descripcion`, `foto`, `precio`, `cantVendida`, `idCategoria`) VALUES
 	(1, 'Samsung Note', 'Cuidado, explota a veces', 'http://www.optimaitalia.com/blog/wp-content/uploads/2016/08/Samsung-Galaxy-Note-7-4-320x150.jpg', 550, 2, 1),
 	(2, 'LG G Vista', 'Pantalla de 5.5 pulgadas, HD 1080p', 'https://imei24.com/img/lg/15_03_07_gvp_LG-G-Vista-Sizzle_5000158_640x360.jpg', 120, 1, 1),
-	(3, 'Huawei Mate 220', 'Celular con pantalla de 6 pulgadas, HD 1080p', 'http://puebloygobierno.com/wp-content/uploads/2016/10/huawei-1.jpg', 300, 6, 1),
-	(4, 'Blu Jesus', 'Un celular fino barato', 'https://http2.mlstatic.com/celular-blu-energy-x-plus-55-bat-4000-mha-libre-garantia-D_NQ_NP_728901-MLA20446438979_102015-F.jpg', 150, 21, 1),
+	(3, 'Huawei Mate 220', 'Celular con pantalla de 6 pulgadas, HD 1080p', 'http://puebloygobierno.com/wp-content/uploads/2016/10/huawei-1.jpg', 300, 7, 1),
+	(4, 'Blu Jesus', 'Un celular fino barato', 'https://http2.mlstatic.com/celular-blu-energy-x-plus-55-bat-4000-mha-libre-garantia-D_NQ_NP_728901-MLA20446438979_102015-F.jpg', 150, 22, 1),
 	(5, 'Nioh - PS4', 'Juego de samurais', 'https://media.playstation.com/is/image/SCEA/nioh-listing-thumb-01-ps4-us-08dec15?$Icon$', 60, 1, 2),
-	(7, 'Camisa del BVB', 'La camisa del mejor equipo', 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_2412000/ff_2412083_full.jpg&w=340', 100, 18, 3),
+	(7, 'Camisa del BVB', 'La camisa del mejor equipo', 'http://images.footballfanatics.com/FFImage/thumb.aspx?i=/productImages/_2412000/ff_2412083_full.jpg&w=340', 100, 20, 3),
 	(8, 'Camisa del FC Barcelona', 'Camisa nula', 'http://www.fcbarcelonastoreasia.com/files/images/products/17400/17399_fc-barcelona-home-authentic-jersey-2016-17_08.png', 80, 0, 3),
 	(9, 'Nier:Automata - PS4', 'Un juego de accion bastante divertido que permite matar maquinas de diferentes factores humanitarios. La trama es la pelea de las maquinas', 'https://static.giantbomb.com/uploads/original/11/119879/2896726-1721110665-Nier..jpg', 60, 0, 2);
 /*!40000 ALTER TABLE `producto` ENABLE KEYS */;
