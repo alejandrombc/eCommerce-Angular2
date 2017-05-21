@@ -1,29 +1,17 @@
 <!-- Navbar -->
-<script type="text/javascript">
-function openNav() {
-  document.getElementById("mySidenav").style.width = "70%";
-  document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-}
-
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-  document.body.style.backgroundColor = "rgba(0,0,0,0)";
-}
-</script>
-
 <div id="flipkart-navbar">
   <div class="container">
       <div *ngIf="!servicio.tokenize.is_valid; else logout" class="row row1">
           <ul class="largenav pull-right">
-              <li class="upper-links"><a class="links" href="" [routerLink]="['login']" >Inicia Sesion</a></li>
-              <li class="upper-links"><a class="links" [routerLink]="['register']">Registrate</a></li>
+              <li class="upper-links"><a class="links" href="" [routerLink]="['login']" ><span class='glyphicon glyphicon-log-in'> </span>  Inicia Sesión</a></li>
+              <li class="upper-links"><a class="links" [routerLink]="['register']"><span class='glyphicon glyphicon-user'></span>  Registrate</a></li>
           </ul>
       </div>
       <ng-template #logout>
         <div class="row row1">
           <ul class="largenav pull-right">
-                <li class="upper-links"><a class="links" href="" [routerLink]="['perfil']" >Perfil</a></li>
-                <li class="upper-links"><a (click)="cerrar_sesion()" style="cursor:pointer;" class="links">Logout</a></li>
+                <li class="upper-links"><a class="links" href="" [routerLink]="['perfil']" ><span class='glyphicon glyphicon-user'></span> Perfil</a></li>
+                <li class="upper-links"><a (click)="cerrar_sesion()" style="cursor:pointer;" class="links"><span class='glyphicon glyphicon-off'></span>Logout</a></li>
           </ul>
         </div>
       </ng-template>
@@ -69,7 +57,9 @@ function closeNav() {
       <span class="sidenav-heading">Inicio</span>
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
   </div>
-  <a href="" [routerLink]="['login']" >Inicia Sesion</a>
-  <a href="" [routerLink]="['register']" >Registrate</a>
+  <a *ngIf="!servicio.tokenize.is_valid;" href="" [routerLink]="['login']" ><span class='glyphicon glyphicon-log-in'> </span>  Inicia Sesión</a>
+  <a *ngIf="!servicio.tokenize.is_valid;" href="" [routerLink]="['register']" ><span class='glyphicon glyphicon-user'></span> Registrate</a>
+  <a *ngIf="servicio.tokenize.is_valid;" class="links" href="" [routerLink]="['perfil']" ><span class='glyphicon glyphicon-user'></span> Perfil</a>
+  <a *ngIf="servicio.tokenize.is_valid;" (click)="cerrar_sesion()" style="cursor:pointer;" class="links"><span class='glyphicon glyphicon-off'></span>Logout</a>
 </div>
 <br>
