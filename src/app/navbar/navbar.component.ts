@@ -15,6 +15,8 @@ export class NavbarComponent implements OnInit {
 		this.servicio.tokenize.is_valid = false;
 		this.servicio.tokenize.token = null;
 		localStorage.removeItem("access_token");
+		localStorage.removeItem("carrito");
+		this.servicio.carrito_size = 0;
 		this.router.navigate(['']);
 		alert("Hasta Luego!");
 	}

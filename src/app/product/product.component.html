@@ -26,7 +26,8 @@
 					<h4 class="price">precio: <span>$ {{product.precio}}</span></h4>
 					<div class="action">
 							<div *ngIf="servicio.tokenize.is_valid;">	
-					 			<button class="add-to-cart btn btn-default" href=""> Anadir <span class="glyphicon glyphicon-shopping-cart"></span></button>
+					 			<button *ngIf="!is_in" class="add-to-cart btn btn-default" (click)="add_to_cart()"> Anadir <span class="glyphicon glyphicon-shopping-cart"></span></button>
+					 			<button *ngIf="is_in" class="delete-to-cart btn btn-default" (click)="delete_from_cart()"> Eliminar <span class="glyphicon glyphicon-shopping-cart"></span></button>
 					 			<button class="edit-product btn btn-default" [routerLink]="['/update_product', this.id]"> Editar <span class="glyphicon glyphicon-edit"></span></button>
 					 			<button class="delete-product btn btn-default" (click)="delete_product()"> Eliminar <span class="glyphicon glyphicon-trash"></span></button>
 					 		</div>

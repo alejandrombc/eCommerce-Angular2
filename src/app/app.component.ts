@@ -11,6 +11,7 @@ export class AppComponent {
 
   constructor(private servicio: GlobalService){
   	servicio.check_token();
+  	
   }
   
 }

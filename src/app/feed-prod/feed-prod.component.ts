@@ -30,7 +30,6 @@ export class FeedProdComponent implements OnInit {
 		var headers = new Headers();
 		headers.append('Content-Type', 'application/json');
 		let json_val =  {'offset': this.offset, 'sort':this.sort, 'idAlfabetico': this.alfabetico, 'idC':this.categoria, 'idPrecio':this.precio};
-		console.log(json_val);
 		let salida;
 			this.http.post('http://localhost:5000/products', JSON.stringify(json_val),{ headers: headers })      
 			.subscribe (res => {

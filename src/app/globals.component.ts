@@ -6,8 +6,17 @@ import { ActivatedRoute , Router} from "@angular/router";
 @Injectable()
 export class GlobalService {
 	public tokenize = {"token": null, "is_valid": false};
+	
+	public carrito_size = 0;
 
-	constructor(public http: Http, private router:Router) {}
+	constructor(public http: Http, private router:Router) {
+		this.carrito_size = 0;
+		let carrito = localStorage.getItem("carrito");
+      	if(carrito != null){
+            carrito = JSON.parse(carrito);
+            this.carrito_size = carrito['carrito'].length;
+        }
+	}
 
 
 	check_token(){
